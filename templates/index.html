@@ -1,0 +1,163 @@
+{% extends "frame.html" %}
+
+{% block head %}
+    <title>Home - Portfolio</title>
+{% endblock %}
+
+{% block content %}
+    <!-- Header Section -->
+    <header id="page-header">
+        <!-- Hero / Name -->
+        <section id="hero">
+            <h1>ORI<br>LESHEM</h1>
+        </section>
+
+        <!-- Top Right Sidebar -->
+        <section id="header-sidebar">
+            <!-- Menu Button -->
+            <div id="menu-toggle">
+                <i class='bx  bx-menu' alt="Menu Icon" id="menu-icon"></i>
+            </div>
+
+            <!-- Sliding Menu Sidebar -->
+            <div id="menu">
+              <i class='bx  bx-x' alt="Close Btn" id="close-btn"></i>
+              <ul>
+                <li><i class='bx  bx-home' alt="home Icon" id="home-icon"></i> <a href="/"> Home</a></li>
+                <li><i class='bx  bx-info-square' alt="About Icon" id="about-icon"></i> <a href="#about-me"> About</a></li>
+                <li><i class='bx  bx-git-repo-forked' alt="Git Icon" id="git-icon"></i><a href="https://github.com/Orileshem10"> GitHub</a></li>
+                <li><i class='bx  bx-envelope' alt="Contact Icon" id="contact-icon"></i> <a href="mailto:Orileshem10@gmail.com">Contact</a></li>
+              </ul>
+            </div>
+
+            <!-- Tagline -->
+            <div id="tagline">
+                <h2>CREATIVE | DEVELOPER</h2>
+            </div>
+        </section>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Unity Section -->
+        <section id="unity-wrapper">
+            <canvas id="unity-canvas" width="960" height="600" tabindex="-1" 
+                    style="width: 800px; height: 500px; background: #231F20">
+            </canvas>
+            <script src="{{ url_for('static', filename='Build/Portfolio.loader.js') }}"></script>
+
+            <script>
+              if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+                var meta = document.createElement('meta');
+                meta.name = 'viewport';
+                meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+                document.getElementsByTagName('head')[0].appendChild(meta);
+
+                var canvas = document.querySelector("#unity-canvas");
+                canvas.style.width = "100%";
+                canvas.style.height = "100%";
+                canvas.style.position = "fixed";
+
+                document.body.style.textAlign = "left";
+              }
+
+              createUnityInstance(document.querySelector("#unity-canvas"), {
+                dataUrl: "{{ url_for('static', filename='Build/Portfolio.data.gz') }}",
+                frameworkUrl: "{{ url_for('static', filename='Build/Portfolio.framework.js.gz') }}",
+                codeUrl: "{{ url_for('static', filename='Build/Portfolio.wasm.gz') }}",
+                streamingAssetsUrl: "{{ url_for('static', filename='StreamingAssets') }}",
+                companyName: "DefaultCompany",
+                productName: "Portfolio Game",
+                productVersion: "0.1",
+              });
+            </script>
+            
+        </section>
+
+        <!-- Sidebar (Projects) -->
+        <aside id="sidebar">
+            <h1 id="project-instructions">Find projects across the room</h1>
+            <div class="project-section" id="project-section">
+                <div class="nav-dots">
+                    <div class="dot active" data-section="0"></div>
+                    <div class="dot" data-section="1"></div>
+                    <div class="dot" data-section="2"></div>
+                </div>
+                <!-- Header -->
+                <h1 id="project-header"><i id="project-icon" class='bx bx-robot'></i></h1>
+
+                <!-- Project Container with Buttons on Sides -->
+                <div class="projects-container">
+                    <button class="nav-button" id="prevBtn">←</button>
+                    
+                    <div id="project-card" style="flex: 1;"></div>
+                    
+                    <button class="nav-button" id="nextBtn">→</button>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <section id="about-me">
+        <div class="card" style="pointer-events: none;">
+            <h3>My Journey</h3>
+            <p>My path in technology began with curiosity and evolved into a passion. Over the years, I've honed my skills in web development, design, and problem-solving, constantly pushing boundaries and learning new technologies.</p>
+        </div>
+        <div id="bottom-cards">
+            <div class="card" id="skills-card">
+                <h3>What I Do</h3>
+                <ul>
+                    <li>
+                        Full-Stack Web Development
+                        <div class="skill">
+                            <div class="bar">
+                            <div class="fill" style="--level: 95%;"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        UI/UX Design
+                        <div class="skill">
+                            <div class="bar">
+                            <div class="fill" style="--level: 85%;"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        Responsive Applications
+                        <div class="skill">
+                            <div class="bar">
+                            <div class="fill" style="--level: 70%;"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        API Development
+                        <div class="skill">
+                            <div class="bar">
+                            <div class="fill" style="--level: 50%;"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        Database Design
+                        <div class="skill">
+                            <div class="bar">
+                            <div class="fill" style="--level: 50%;"></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="card" id="chatbot" style="pointer-events: none;">
+                <h3>Ori-Bot</h3>
+                <i class='bx  bx-discussion pulse' alt="AI Icon" id="ai-icon"></i>
+                <p>COMING SOON...</p>
+                <form method="POST">
+                    <input name="message" type="text" placeholder="Enter text here">
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}
