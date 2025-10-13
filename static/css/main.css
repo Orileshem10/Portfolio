@@ -147,7 +147,7 @@ body {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(8px);
   border-radius: 15px;
-  padding: 25px;
+  /* padding: 25px; */
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: inherit;
   text-align: left;
@@ -163,12 +163,13 @@ body {
 
 #project-card h3 {
   font-size: 25px;
-  margin-bottom: 10px;
+  padding: 25px 25px 10px 25px;
   font-weight: 600;
 }
 
 #project-card p {
   font-size: 20px;
+  padding: 0 25px 25px 25px;
   line-height: 1.6;
   opacity: 0.9;
 }

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
       { title: "Voice-Controlled Rover", desc: "A mobile robot that responds to voice commands using speech recognition." }
     ],
     code: [
-      { title: "Portfolio Website", desc: "A single-page site showcasing projects, résumé, and blog posts." },
+      {  },
       { title: "Task Manager App", desc: "A web app to manage tasks using local storage and modern JS." }
     ],
     games: [
@@ -59,6 +59,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Update project card
+    if (!item.title || !item.desc) {
+      projectCard.innerHTML = '<img src="static/images/construction.png" alt="No project available" style="width:100%;">';
+      return;
+    }
     projectCard.innerHTML = `<h3>${item.title}</h3><p>${item.desc}</p>`;
 
     // Update nav dots
