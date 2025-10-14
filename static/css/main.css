@@ -486,7 +486,8 @@ form button:hover {
 
 #about-icon,
 #git-icon,
-#home-icon {
+#home-icon,
+#linkden-icon {
   font-size: 24px;
   color: #fff;
   cursor: pointer;
@@ -496,7 +497,8 @@ form button:hover {
 
 #about-icon:hover,
 #git-icon:hover,
-#home-icon:hover {
+#home-icon:hover,
+#linkden-icon:hover {
   color: gray;
   transform: scale(1.1);
 }
@@ -520,7 +522,6 @@ form button:hover {
   border: 5px solid #fff;
   padding: 40px 20px;
   transition: transform 0.3s ease-in-out;
-  z-index: 2000;
 }
 
 #contact-section.active {

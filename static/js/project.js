@@ -101,3 +101,4 @@ document.addEventListener('DOMContentLoaded', function() {
   currentCategory = projectsData[initialHash] ? initialHash : null;
   render();
 });
+
