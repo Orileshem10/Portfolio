@@ -16,6 +16,7 @@
         <section id="header-sidebar">
             <!-- Menu Button -->
             <div id="menu-toggle">
+                <i class='bx  bx-envelope'  alt="contact Button" id="contact-button"></i> 
                 <i class='bx  bx-menu' alt="Menu Icon" id="menu-icon"></i>
             </div>
 
@@ -26,9 +27,20 @@
                 <li><i class='bx  bx-home' alt="home Icon" id="home-icon"></i> <a href="/"> Home</a></li>
                 <li><i class='bx  bx-info-square' alt="About Icon" id="about-icon"></i> <a href="#about-me"> About</a></li>
                 <li><i class='bx  bx-git-repo-forked' alt="Git Icon" id="git-icon"></i><a href="https://github.com/Orileshem10"> GitHub</a></li>
-                <li><i class='bx  bx-envelope' alt="Contact Icon" id="contact-icon"></i> <a href="mailto:Orileshem10@gmail.com">Contact</a></li>
               </ul>
             </div>
+
+            <!-- contact section -->
+            <div id="contact-section">
+                <i class='bx  bx-x' alt="Close Btn" id="close-contact-btn"></i>
+                <form action="https://formspree.io/f/manplrrv" method="POST">
+                    <h2>Contact Me</h2>
+                    <input type="email" name="email" required>
+                    <textarea name="message" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+
 
             <!-- Tagline -->
             <div id="tagline">
@@ -76,7 +88,7 @@
 
         <!-- Sidebar (Projects) -->
         <aside id="sidebar">
-            <h1 id="project-instructions">Find projects across the room</h1>
+            <h1 id="project-instructions">Navigate around the room using the WASD keys, click on the interactive objects to learn more about them!</h1>
             <div class="project-section" id="project-section">
                 <div class="nav-dots">
                     <div class="dot active" data-section="0"></div>
@@ -101,14 +113,14 @@
     <section id="about-me">
         <div class="card" style="pointer-events: none;">
             <h3>My Journey</h3>
-            <p>My path in technology began with curiosity and evolved into a passion. Over the years, I've honed my skills in web development, design, and problem-solving, constantly pushing boundaries and learning new technologies.</p>
+            <p>I’m a self-taught developer with a strong passion for creating interactive digital experiences. Beginning with game design at a young age, I later expanded into web development and robotics, continuously driven by curiosity and a desire to learn. I’m dedicated to refining my skills and building innovative projects that challenge my creativity and technical ability.</p>
         </div>
         <div id="bottom-cards">
             <div class="card" id="skills-card">
                 <h3>What I Do</h3>
                 <ul>
                     <li>
-                        Full-Stack Web Development
+                        Python Programming
                         <div class="skill">
                             <div class="bar">
                             <div class="fill" style="--level: 95%;"></div>
@@ -116,7 +128,7 @@
                         </div>
                     </li>
                     <li>
-                        UI/UX Design
+                        Unity C# Development
                         <div class="skill">
                             <div class="bar">
                             <div class="fill" style="--level: 85%;"></div>
@@ -124,7 +136,7 @@
                         </div>
                     </li>
                     <li>
-                        Responsive Applications
+                        Web Development (HTML, CSS, JS)
                         <div class="skill">
                             <div class="bar">
                             <div class="fill" style="--level: 70%;"></div>
@@ -132,7 +144,7 @@
                         </div>
                     </li>
                     <li>
-                        API Development
+                        Robotics Engineering (Arduino, Raspberry Pi)
                         <div class="skill">
                             <div class="bar">
                             <div class="fill" style="--level: 50%;"></div>
@@ -140,7 +152,7 @@
                         </div>
                     </li>
                     <li>
-                        Database Design
+                        AI & Machine Learning Basics
                         <div class="skill">
                             <div class="bar">
                             <div class="fill" style="--level: 50%;"></div>

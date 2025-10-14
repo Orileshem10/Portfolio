@@ -1,17 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
   var projectsData = {
     robotics: [
-      { title: "Autonomous Line-Following Robot", desc: "A robot designed to detect and follow a line path using infrared sensors and microcontroller logic." },
-      { title: "Obstacle Avoidance Bot", desc: "Uses ultrasonic sensors to detect obstacles and navigate around them autonomously." },
-      { title: "Voice-Controlled Rover", desc: "A mobile robot that responds to voice commands using speech recognition." }
+      {  }
     ],
     code: [
-      {  },
-      { title: "Task Manager App", desc: "A web app to manage tasks using local storage and modern JS." }
+      { title: "Portfolio Website", desc: "This personal portfolio was built with HTML, CSS, and JavaScript. It also features a small Unity mini-game made with C# for an interactive touch." }
     ],
     games: [
-      { title: "Pixel Dungeon", desc: "A retro-styled dungeon crawler built with Unity and C#." },
-      { title: "Space Shooter", desc: "A top-down 2D shooter made with Phaser.js." }
+      {  }
     ]
   };
 

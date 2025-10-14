@@ -52,6 +52,7 @@ body {
 
 #menu-toggle {
   display: flex;
+  align-items: center;
   justify-content: flex-end;
 }
 
@@ -60,6 +61,18 @@ body {
   color: #fff;
   cursor: pointer;
   transition: color 0.3s ease, transform 0.2s ease;
+}
+
+#contact-button {
+  font-size: 50px;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+#contact-button:hover {
+  color: gray;
+  transform: scale(1.1);
 }
 
 #menu-icon:hover {
@@ -234,6 +247,11 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem; /* adds space between cards */
+}
+
+#about-me p {
+  font-size: 20px;
+  line-height: 1.6;
 }
 
 #bottom-cards {
@@ -468,7 +486,6 @@ form button:hover {
 
 #about-icon,
 #git-icon,
-#contact-icon,
 #home-icon {
   font-size: 24px;
   color: #fff;
@@ -479,11 +496,94 @@ form button:hover {
 
 #about-icon:hover,
 #git-icon:hover,
-#contact-icon:hover,
 #home-icon:hover {
   color: gray;
   transform: scale(1.1);
 }
+
+/* ===============================
+   Contact Section Layout
+   =============================== */
+#contact-section {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(200%, -50%); /* Start hidden off-screen to the right */
+  width: 500px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(17, 17, 17, 0.95);
+  backdrop-filter: blur(6px);
+  border-radius: 25px;
+  border: 5px solid #fff;
+  padding: 40px 20px;
+  transition: transform 0.3s ease-in-out;
+  z-index: 2000;
+}
+
+#contact-section.active {
+  transform: translate(-50%, -50%); /* Center it on screen */
+}
+
+#close-contact-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 32px;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* ===============================
+   Form Styling
+   =============================== */
+
+/* Form container */
+#contact-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+/* Inputs & textarea styling */
+#contact-section input,
+#contact-section textarea {
+  padding: 10px 15px;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+  resize: none;
+}
+
+#contact-section input:focus,
+#contact-section textarea:focus {
+  border-color: black;
+}
+
+/* Submit button */
+#contact-section button {
+  padding: 10px 20px;
+  background-color: #0072ff;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#contact-section button:hover {
+  background-color: darkblue;
+}
+
+
 
 /* ==========================================================
    RESPONSIVE DESIGN (Updated for phones)
