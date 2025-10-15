@@ -2,6 +2,7 @@
 
 {% block head %}
     <title>Home - Portfolio</title>
+    <link rel="icon" type="image/png" href="static/images/title_icon.png">
 {% endblock %}
 
 {% block content %}
@@ -167,8 +168,8 @@
             <i class='bx  bx-x' alt="Close Btn" id="close-contact-btn"></i>
             <form action="https://formspree.io/f/manplrrv" method="POST">
                 <h2>Contact Me</h2>
-                <input type="email" name="email" tabindex="2" required>
-                <textarea name="message" required tabindex="2" ></textarea>
+                <input type="email" name="email" tabindex="2" placeholder="you@example.com" required>
+                <textarea name="message" required tabindex="2" placeholder="Enter text here"></textarea>
                 <button type="submit">Send</button>
             </form>
         </div>
