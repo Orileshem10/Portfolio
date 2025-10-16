@@ -23,10 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
   var prevBtn = document.getElementById('prevBtn');
   var nextBtn = document.getElementById('nextBtn');
 
-  // Get nav dots
   var dots = document.querySelectorAll('.nav-dots .dot');
 
-  var categories = ["robotics", "code", "games"]; // Map hash to dot index
+  var categories = ["robotics", "code", "games"];
   var currentCategory = null;
   var currentIndex = 0;
 
@@ -34,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!currentCategory || !projectsData[currentCategory]) {
       projectSection.style.display = 'none';
       projectInstructions.style.display = 'flex';
-      // Reset dots
       dots.forEach(dot => dot.classList.remove('active'));
       return;
     }
@@ -57,19 +55,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update project card
     if (!item.title || !item.desc) {
       projectCard.innerHTML = '<img src="static/images/construction.png" alt="No project available" style="width:100%;">';
-      return;
+    } else {
+      projectCard.innerHTML = `<h3>${item.title}</h3><p>${item.desc}</p>`;
     }
-    projectCard.innerHTML = `<h3>${item.title}</h3><p>${item.desc}</p>`;
 
     // Update nav dots
-    dots.forEach(dot => dot.classList.remove('active'));
     const activeIndex = categories.indexOf(currentCategory);
-    if (activeIndex >= 0 && dots[activeIndex]) {
-      dots[activeIndex].classList.add('active');
-    }
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === activeIndex);
+    });
   }
 
-  // Button listeners
+  // Prev / Next buttons
   if (prevBtn) {
     prevBtn.addEventListener('click', function() {
       if (!currentCategory) return;
@@ -88,7 +85,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Hash change listener
+  // Dot click behavior
+  dots.forEach(dot => {
+    dot.addEventListener('click', function() {
+      const sectionIndex = parseInt(this.dataset.section);
+      const category = categories[sectionIndex];
+      if (projectsData[category]) {
+        window.location.hash = category; // triggers hashchange
+      }
+    });
+  });
+
+  // Hash change behavior
   window.addEventListener('hashchange', function() {
     var hash = window.location.hash.substring(1);
     currentCategory = projectsData[hash] ? hash : null;
@@ -101,4 +109,3 @@ document.addEventListener('DOMContentLoaded', function() {
   currentCategory = projectsData[initialHash] ? initialHash : null;
   render();
 });
-

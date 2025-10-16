@@ -587,15 +587,30 @@ form button:hover {
 
 
 /* ==========================================================
-   RESPONSIVE DESIGN (Updated for phones)
+   RESPONSIVE DESIGN (Improved)
    ========================================================== */
+@media (max-width: 1024px) {
+  #hero h1 {
+    font-size: 64px;
+  }
+
+  #unity-canvas {
+    width: 600px;
+    height: 380px;
+  }
+
+  .project-section h1 {
+    font-size: 32px;
+  }
+}
+
 @media (max-width: 768px) {
   /* HEADER */
   #page-header {
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    margin: 10px 20px;
-    text-align: center;
+    margin: 20px;
+    gap: 10px;
   }
 
   #hero {
@@ -604,30 +619,35 @@ form button:hover {
   }
 
   #hero h1 {
-    font-size: 48px;
-    line-height: 1;
-    text-align: left;
+    font-size: 42px;
+    line-height: 1.1;
+    text-align: center;
   }
 
   #header-sidebar {
-    align-items: space-between;
-    gap: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
     padding: 10px 0;
   }
 
   #tagline h2 {
-    font-size: 14px;
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  #menu-icon,
+  #contact-button {
+    font-size: 36px;
   }
 
-  #menu-icon {
-    font-size: 40px;
-  }
+  
 
   /* MAIN CONTENT */
   #main-content {
     flex-direction: column;
     align-items: center;
-    margin: 10px 20px;
+    margin: 20px;
     gap: 30px;
   }
 
@@ -636,9 +656,10 @@ form button:hover {
   }
 
   #unity-canvas {
-    width: 100% !important;
-    max-width: 100%;
-    height: auto !important;
+    width: 90vw;
+    height: auto;
+    max-width: 600px;
+    aspect-ratio: 16 / 10;
   }
 
   #sidebar {
@@ -648,23 +669,23 @@ form button:hover {
 
   /* PROJECT SECTION */
   .project-section h1 {
-    font-size: 28px;
+    font-size: 26px;
   }
 
   .projects-container {
     flex-direction: column;
     gap: 15px;
+    align-items: center;
   }
 
   #project-card {
     width: 90%;
-    padding: 20px;
   }
 
   .nav-dots {
     justify-content: center;
     margin: 20px 0;
-    gap: 10px;
+    gap: 8px;
   }
 
   .dot {
@@ -683,7 +704,7 @@ form button:hover {
   }
 
   #chatbot h3 {
-    font-size: 28px;
+    font-size: 26px;
   }
 
   #chatbot p {
@@ -693,22 +714,101 @@ form button:hover {
   form {
     flex-direction: column;
     width: 100%;
+    gap: 10px;
   }
 
-  form input[type="text"], form button {
+  form input[type="text"],
+  form button {
     width: 100%;
   }
 
   /* MENU */
   #menu {
-    width: 70%;
-    right: -70%;
+    width: 75%;
+    right: -75%;
   }
 
   #menu.active {
     right: 0;
   }
+
+  /* CONTACT SECTION */
+  #contact-section {
+    width: 90%;
+    height: auto;
+    max-height: 85%;
+    padding: 20px;
+    transform: translate(200%, -50%);
+  }
+
+  #contact-section.active {
+    transform: translate(-50%, -50%);
+  }
 }
+
+@media (max-width: 480px) {
+  #hero h1 {
+    font-size: 32px;
+  }
+
+  #unity-canvas {
+    display: flex;
+    width: 95vw;
+    max-width: 400px;
+    aspect-ratio: 16 / 10;
+  }
+
+  #menu-icon,
+  #contact-button {
+    font-size: 32px;
+  }
+
+  .project-section h1 {
+    font-size: 22px;
+  }
+
+  #chatbot h3 {
+    font-size: 22px;
+  }
+
+  #chatbot p {
+    font-size: 16px;
+  }
+
+  .nav-dots {
+    gap: 6px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+
+/* ==========================================================
+   UNITY CANVAS FIX (prevents it from staying fixed behind everything)
+   ========================================================== */
+#unity-wrapper, #unity-canvas {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+canvas {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+body, html {
+  overflow-x: hidden;
+}
+
+#menu,
+#contact-section {
+  position: fixed;
+  z-index: 999 !important;
+}
+
 
 
 /* ==========================================================
