@@ -597,6 +597,8 @@ form button:hover {
   #unity-canvas {
     width: 600px;
     height: 380px;
+    pointer-events: auto;
+    touch-action: none; /* ensures swipes go to Unity */
   }
 
   .project-section h1 {
