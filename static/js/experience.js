@@ -3,7 +3,7 @@ const ctx = document.getElementById('skillsRadar');
 new Chart(ctx, {
   type: 'radar',
   data: {
-    labels: ['AI / Machine Learning', 'Unity C#', 'Python Programming', 'Robotics', 'Web Dev'],
+    labels: ['AI / Machine Learning', 'Unity C#', 'Python', 'Robotics', 'Web Dev'],
     datasets: [
       {
         label: 'My experience',
@@ -20,7 +20,7 @@ new Chart(ctx, {
   },
   options: {
     elements: {
-      line: { borderWidth: 3 }
+      line: { borderWidth: 4 }
     },
     scales: {
       r: {
@@ -28,10 +28,11 @@ new Chart(ctx, {
         grid: { color: '#ddd' },
         pointLabels: {
           color: 'white',
-          font: { size: 14, family: 'Poppins' }
+          font: { size: 16, family: 'Public Sans' , weight: 'bold' }
         },
         ticks: {
-            display: false
+            display: false,
+            stepSize: 20
         },
         suggestedMin: 0,
         suggestedMax: 100
