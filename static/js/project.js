@@ -27,6 +27,12 @@ document.addEventListener('DOMContentLoaded', function() {
   var currentCategory = null;
   var currentIndex = 0;
 
+  if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+    projectInstructions.textContent = "Navigate around the room by swiping, click on the interactive objects to learn more about them!";
+  } else {
+    projectInstructions.textContent = "Navigate around the room by using the WASD keys, click on the interactive objects to learn more about them!";
+  }
+
   function render() {
     if (!currentCategory || !projectsData[currentCategory]) {
       projectSection.style.display = 'none';
