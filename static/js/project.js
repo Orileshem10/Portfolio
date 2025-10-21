@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
       {  }
     ],
     code: [
-      { title: "Portfolio Website", desc: "This personal portfolio was built with HTML, CSS, and JavaScript. It also features a small Unity mini-game made with C# for an interactive touch." },
       {  }
     ],
     games: [
@@ -13,16 +12,14 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   const headerData = {
-    robotics: { text: "Robotics Projects", iconClass: "bx bx-robot" },
-    code: { text: "Coding Projects", iconClass: "bx bx-code-alt" },
-    games: { text: "Game Projects", iconClass: "bx bx-game" }
+    robotics: { text: "Robotics Project", iconClass: "bx bx-robot" },
+    code: { text: "Chat Bot", iconClass: "bx bx-code-alt" },
+    games: { text: "Video Game", iconClass: "bx bx-gaming" }
   };
 
   var projectSection = document.getElementById('project-section');
   var projectInstructions = document.getElementById('project-instructions');
   var projectCard = document.getElementById('project-card');
-  var prevBtn = document.getElementById('prevBtn');
-  var nextBtn = document.getElementById('nextBtn');
 
   var dots = document.querySelectorAll('.nav-dots .dot');
 
@@ -64,25 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const activeIndex = categories.indexOf(currentCategory);
     dots.forEach((dot, i) => {
       dot.classList.toggle('active', i === activeIndex);
-    });
-  }
-
-  // Prev / Next buttons
-  if (prevBtn) {
-    prevBtn.addEventListener('click', function() {
-      if (!currentCategory) return;
-      var arr = projectsData[currentCategory];
-      currentIndex = (currentIndex - 1 + arr.length) % arr.length;
-      render();
-    });
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener('click', function() {
-      if (!currentCategory) return;
-      var arr = projectsData[currentCategory];
-      currentIndex = (currentIndex + 1) % arr.length;
-      render();
     });
   }
 
