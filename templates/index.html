@@ -44,8 +44,9 @@
     <main id="main-content">
         <!-- Unity Section -->
         <section id="unity-wrapper">
+            <img id="gameboy" src="{{ url_for('static', filename='images/gameboy.png') }}" alt="gameboy">
             <canvas id="unity-canvas" width="960" height="600" tabindex="-1" 
-                    style="width: 800px; height: 500px; background: #231F20">
+                    style="width: 400px; height: 250px; background: #231F20">
             </canvas>
             <script src="{{ url_for('static', filename='Build/Portfolio.loader.js') }}"></script>
 
@@ -91,11 +92,11 @@
 
                 <!-- Project Container with Buttons on Sides -->
                 <div class="projects-container">
-                    <button class="nav-button" id="prevBtn">←</button>
+                    <!-- <button class="nav-button" id="prevBtn">←</button> -->
                     
                     <div id="project-card" style="flex: 1;"></div>
                     
-                    <button class="nav-button" id="nextBtn">→</button>
+                    <!-- <button class="nav-button" id="nextBtn">→</button> -->
                 </div>
             </div>
         </aside>

@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
       {  }
     ],
     code: [
-      { title: "Portfolio Website", desc: "This personal portfolio was built with HTML, CSS, and JavaScript. It also features a small Unity mini-game made with C# for an interactive touch." }
+      {  }
     ],
     games: [
       {  }
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const headerData = {
     robotics: { text: "Robotics Projects", iconClass: "bx bx-robot" },
     code: { text: "Coding Projects", iconClass: "bx bx-code-alt" },
-    games: { text: "Game Projects", iconClass: "bx bx-game" }
+    games: { text: "Game Projects", iconClass: "bx bx-gaming" }
   };
 
   var projectSection = document.getElementById('project-section');
