@@ -261,8 +261,11 @@ body {
   justify-content: space-between;
 }
 
-#skills-card {
-  flex: 2;
+#skillsRadar {
+  width: 100%;
+  max-width: 450px;
+  height: 450px;
+  margin: 0 auto;
 }
 
 #chatbot {
