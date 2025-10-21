@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
       {  }
     ],
     code: [
-      { title: "Portfolio Website", desc: "This personal portfolio was built with HTML, CSS, and JavaScript. It also features a small Unity mini-game made with C# for an interactive touch." }
+      { title: "Portfolio Website", desc: "This personal portfolio was built with HTML, CSS, and JavaScript. It also features a small Unity mini-game made with C# for an interactive touch." },
+      {  }
     ],
     games: [
       {  }

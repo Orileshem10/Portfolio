@@ -47,43 +47,15 @@ body {
   flex: 1;
   flex-direction: column;
   justify-content: space-between;
+  align-self: center;
   padding: 10px;
-}
-
-#menu-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-#menu-icon {
-  font-size: 60px;
-  color: #fff;
-  cursor: pointer;
-  transition: color 0.3s ease, transform 0.2s ease;
-}
-
-#contact-button {
-  font-size: 50px;
-  color: #fff;
-  cursor: pointer;
-  transition: color 0.3s ease, transform 0.2s ease;
-}
-
-#contact-button:hover {
-  color: gray;
-  transform: scale(1.1);
-}
-
-#menu-icon:hover {
-  color: gray;
-  transform: scale(1.1);
 }
 
 #tagline h2 {
   font-size: 24px;
   font-weight: bold;
   line-height: 1.5;
+  justify-content: center;
 }
 
 /* ==========================================================
@@ -241,7 +213,6 @@ body {
 /* ==========================================================
    ABOUT ME SECTION
    ========================================================== */ 
-
 #about-me {
   margin: 30px 40px;
   display: flex;
@@ -254,13 +225,20 @@ body {
   line-height: 1.6;
 }
 
+/* ==========================================================
+   BOTTOM CARDS LAYOUT
+   ========================================================== */
 #bottom-cards {
   display: flex;
   flex-direction: row;
   gap: 20px;
   justify-content: space-between;
+  flex-wrap: wrap; /* ensures responsiveness on small screens */
 }
 
+/* ==========================================================
+   SKILLS CARD
+   ========================================================== */
 #skillsRadar {
   width: 100%;
   max-width: 450px;
@@ -268,7 +246,7 @@ body {
   margin: 0 auto;
 }
 
-#chatbot {
+#skills-card {
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -276,8 +254,9 @@ body {
   align-items: center;
 }
 
-/* Card Styles */
-
+/* ==========================================================
+   CARD BASE STYLES
+   ========================================================== */
 .card {
   flex: 1;
   background: rgba(255, 255, 255, 0.08);
@@ -303,39 +282,16 @@ body {
   color: white;
 }
 
-.card ul {
-  list-style: none;
-  padding-left: 0;
+/* ==========================================================
+   CHATBOT
+   ========================================================== */
+#chatbot {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-evenly;
+  align-items: center;
 }
-
-.card ul li {
-  padding: 0.5rem 0;
-  border-bottom: 1px solid white;
-  transition: padding-left 0.3s ease;
-}
-
-.card ul li:last-child {
-  border-bottom: none; /* removes last border */
-}
-
-.card ul li:hover {
-  padding-left: 0.5rem;
-}
-
-.skill {
-  margin-top: 10px;
-  margin-bottom: 5px;
-}
-
-.bar {
-  background: white;
-  height: 14px;
-  width: 70%;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-/* Chatbot */
 
 #chatbot h3 {
   font-size: 36px;
@@ -354,20 +310,10 @@ body {
 }
 
 @keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.15);
-    opacity: 0.7;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
 }
-
 
 #chatbot p {
   font-size: 24px;
@@ -375,44 +321,55 @@ body {
   text-align: center;
 }
 
-/* Style the form */
-form {
+/* ==========================================================
+   CHATBOT FORM
+   ========================================================== */
+/* Shared form styles (used by chatbot + contact forms) */
+.styled-form {
   display: flex;
-  gap: 10px;
-  width: 300px;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
 }
 
-/* Input styling */
-form input[type="text"] {
-  flex: 1;
-  padding: 10px 15px;
-  border: 2px solid #ccc;
+.styled-form input,
+.styled-form textarea {
+  padding: 12px 18px;
+  border: 1px solid #ccc;
   border-radius: 25px;
   font-size: 16px;
   outline: none;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  resize: none;
 }
 
-form input[type="text"]:focus {
-  border-color: #4CAF50;
+.styled-form input:focus,
+.styled-form textarea:focus {
+  border-color: #0072ff;
+  box-shadow: 0 0 5px rgba(0, 114, 255, 0.4);
 }
 
-/* Button styling */
-form button {
-  padding: 10px 20px;
+.styled-form button {
+  padding: 12px 20px;
   background-color: #0072ff;
   color: white;
   border: none;
   border-radius: 25px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-form button:hover {
+.styled-form button:hover {
   background-color: darkblue;
+  transform: translateY(-2px);
 }
 
+
+/* ==========================================================
+   SKILL FILL BAR
+   ========================================================== */
 .fill {
   background: linear-gradient(90deg, #00c6ff, #0072ff);
   height: 100%;
@@ -423,170 +380,64 @@ form button:hover {
 }
 
 @keyframes fill-animation {
-  to {
-    width: var(--level);
-  }
+  to { width: var(--level); }
 }
 
 /* ==========================================================
-   SLIDING MENU
+   CONTACT SECTION
    ========================================================== */
-#menu {
-  position: fixed;
-  top: 0;
-  right: -200px; /* hidden off-screen */
-  width: 200px;
-  height: 100%;
+#links {
   display: flex;
   flex-direction: column;
-  background: rgba(17, 17, 17, 0.95);
-  backdrop-filter: blur(6px);
-  border-left: 5px solid #fff;
-  padding: 40px 20px;
-  transition: right 0.3s ease-in-out;
-  z-index: 1000;
+  align-items: center; /* fixed from space-between */
+  justify-content: flex-start;
+  gap: 30px; /* space between form and icons */
+  text-align: center;
+  padding: 20px;
 }
 
-#menu.active {
-  right: 0; /* slide in */
+#contact-section2 {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 10px; /* ensures spacing before icons */
 }
 
-#menu ul {
-  list-style: none;
+/* ==========================================================
+   SOCIAL ICONS
+   ========================================================== */
+#contact-links {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 20px;
-  margin-top: 40px;
+  margin-top: 10px;
 }
 
-#menu a {
-  color: #fff;
-  font-size: 20px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: color 0.3s ease, transform 0.2s ease;
-}
-
-#menu a:hover {
-  color: gray;
-  transform: translateX(5px);
-}
-
-#close-btn {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  font-size: 32px;
-  background: none;
-  color: #fff;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-#close-btn:hover {
-  transform: scale(1.1);
-}
-
-#about-icon,
-#git-icon,
-#home-icon,
-#linkden-icon {
-  font-size: 24px;
-  color: #fff;
-  cursor: pointer;
-  margin: 3px;
-  transition: color 0.3s ease, transform 0.2s ease;
-}
-
-#about-icon:hover,
-#git-icon:hover,
-#home-icon:hover,
-#linkden-icon:hover {
-  color: gray;
-  transform: scale(1.1);
-}
-
-/* ===============================
-   Contact Section Layout
-   =============================== */
-#contact-section {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(200%, -50%); /* Start hidden off-screen to the right */
-  width: 500px;
-  height: 400px;
+.icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(17, 17, 17, 0.95);
-  backdrop-filter: blur(6px);
-  border-radius: 25px;
-  border: 5px solid #fff;
-  padding: 40px 20px;
-  transition: transform 0.3s ease-in-out;
-}
-
-#contact-section.active {
-  transform: translate(-50%, -50%); /* Center it on screen */
-}
-
-#close-contact-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 32px;
-  background: none;
-  color: #fff;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-/* ===============================
-   Form Styling
-   =============================== */
-
-/* Form container */
-#contact-section form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 100%;
-}
-
-/* Inputs & textarea styling */
-#contact-section input,
-#contact-section textarea {
-  padding: 10px 15px;
-  border: 2px solid #ccc;
-  border-radius: 25px;
-  font-size: 16px;
-  outline: none;
-  transition: border-color 0.3s;
-  resize: none;
-}
-
-#contact-section input:focus,
-#contact-section textarea:focus {
-  border-color: black;
-}
-
-/* Submit button */
-#contact-section button {
-  padding: 10px 20px;
-  background-color: #0072ff;
+  text-decoration: none;
   color: white;
-  border: none;
-  border-radius: 25px;
-  font-size: 16px;
+  font-size: 22px;
+  transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
   cursor: pointer;
-  transition: background-color 0.3s;
+  border: none;
 }
 
-#contact-section button:hover {
-  background-color: darkblue;
-}
+/* Platform colors */
+.icon.email { background-color: #d44638; }      /* Gmail red */
+.icon.github { background-color: #333; }        /* GitHub gray */
+.icon.linkedin { background-color: #0077b5; }   /* LinkedIn blue */
+.icon.twitter { background-color: #000; }       /* X black */
 
+.icon:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
 
 
 /* ==========================================================
