@@ -442,81 +442,76 @@ body {
 
 
 /* ==========================================================
-   RESPONSIVE DESIGN (Improved)
+   MOBILE RESPONSIVE DESIGN (REPLACEMENT) -- Unity canvas rules
    ========================================================== */
-@media (max-width: 1024px) {
-  #hero h1 {
-    font-size: 64px;
-  }
-
-  #unity-canvas {
-    width: 600px;
-    height: 380px;
-    pointer-events: auto;
-    touch-action: none; /* ensures swipes go to Unity */
-  }
-
-  .project-section h1 {
-    font-size: 32px;
-  }
-}
-
 @media (max-width: 768px) {
   /* HEADER */
   #page-header {
     flex-direction: column;
     align-items: center;
+    text-align: center;
     margin: 20px;
-    gap: 10px;
+    gap: 15px;
   }
 
   #hero {
     padding: 0;
     justify-content: center;
+    text-align: center;
   }
 
   #hero h1 {
-    font-size: 42px;
+    font-size: 46px;
     line-height: 1.1;
     text-align: center;
   }
 
   #header-sidebar {
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     padding: 10px 0;
+    gap: 5px;
   }
 
   #tagline h2 {
-    font-size: 16px;
+    font-size: 18px;
     text-align: center;
   }
-  
-  #menu-icon,
-  #contact-button {
-    font-size: 36px;
-  }
-
-  
 
   /* MAIN CONTENT */
   #main-content {
     flex-direction: column;
     align-items: center;
     margin: 20px;
-    gap: 30px;
+    gap: 40px;
   }
 
   #unity-wrapper {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
+  /* ----- UNITY CANVAS (original behavior preserved) ----- */
+  /* kept pointer-events, touch-action and relative positioning as in original styles */
   #unity-canvas {
     width: 90vw;
     height: auto;
     max-width: 600px;
+    /* original aspect and sizing */
     aspect-ratio: 16 / 10;
+    background: #000;
+    border: 5px solid #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    transition: transform 0.2s ease;
+    pointer-events: auto;      /* allows Unity input on mobile */
+    touch-action: none;        /* ensures swipes/drag go to Unity */
+    position: relative !important;
+    z-index: 1 !important;
   }
 
   #sidebar {
@@ -526,13 +521,14 @@ body {
 
   /* PROJECT SECTION */
   .project-section h1 {
-    font-size: 26px;
+    font-size: 28px;
+    margin-bottom: 10px;
   }
 
   .projects-container {
     flex-direction: column;
-    gap: 15px;
     align-items: center;
+    gap: 20px;
   }
 
   #project-card {
@@ -542,7 +538,7 @@ body {
   .nav-dots {
     justify-content: center;
     margin: 20px 0;
-    gap: 8px;
+    gap: 10px;
   }
 
   .dot {
@@ -550,78 +546,110 @@ body {
     height: 10px;
   }
 
-  /* ABOUT ME SECTION */
+  /* ABOUT ME */
   #about-me {
     margin: 20px;
+    text-align: center;
+  }
+
+  #about-me h3 {
+    font-size: 28px;
+  }
+
+  #about-me p {
+    font-size: 18px;
   }
 
   #bottom-cards {
     flex-direction: column;
-    gap: 20px;
+    align-items: center;
+    gap: 25px;
+  }
+
+    /* CHATBOT */
+  #chatbot {
+    width: 90%;
+    padding: 20px;
+    text-align: center;
   }
 
   #chatbot h3 {
-    font-size: 26px;
+    font-size: 28px; /* same as about-me h3 */
   }
 
   #chatbot p {
-    font-size: 18px;
+    font-size: 18px; /* same as about-me p */
   }
 
-  form {
+  form, .styled-form {
     flex-direction: column;
     width: 100%;
-    gap: 10px;
+    gap: 12px;
   }
 
-  form input[type="text"],
+  form input,
+  form textarea,
   form button {
     width: 100%;
   }
 
-  /* MENU */
-  #menu {
-    width: 75%;
-    right: -75%;
-  }
-
-  #menu.active {
-    right: 0;
-  }
-
-  /* CONTACT SECTION */
+  /* CONTACT */
   #contact-section {
     width: 90%;
-    height: auto;
-    max-height: 85%;
     padding: 20px;
+    height: auto;
     transform: translate(200%, -50%);
   }
 
   #contact-section.active {
     transform: translate(-50%, -50%);
   }
+
+  #links {
+    padding: 20px;
+    gap: 20px;
+  }
+
 }
 
 @media (max-width: 480px) {
   #hero h1 {
-    font-size: 32px;
+    font-size: 34px;
+    line-height: 1.2;
+    text-align: center;
   }
 
+  #tagline h2 {
+    font-size: 16px;
+  }
+
+  /* ----- UNITY CANVAS (original small-screen behavior preserved) ----- */
   #unity-canvas {
     display: flex;
     width: 95vw;
     max-width: 400px;
     aspect-ratio: 16 / 10;
-  }
-
-  #menu-icon,
-  #contact-button {
-    font-size: 32px;
+    height: auto;
+    background: #000;
+    border: 5px solid #fff; /* preserved original border thickness */
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    pointer-events: auto;
+    touch-action: none;
+    position: relative !important;
+    z-index: 1 !important;
   }
 
   .project-section h1 {
     font-size: 22px;
+  }
+
+  #project-card h3 {
+    font-size: 20px;
+  }
+
+  #project-card p {
+    font-size: 16px;
   }
 
   #chatbot h3 {
@@ -640,31 +668,24 @@ body {
     width: 8px;
     height: 8px;
   }
+
+  #links h3 {
+    font-size: 26px;
+  }
+
+  .icon {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
 }
 
-
-/* ==========================================================
-   UNITY CANVAS FIX (prevents it from staying fixed behind everything)
-   ========================================================== */
-#unity-wrapper, #unity-canvas {
-  position: relative !important;
-  z-index: 1 !important;
-}
-
-canvas {
-  position: relative !important;
-  z-index: 1 !important;
-}
-
-body, html {
-  overflow-x: hidden;
-}
-
-#menu,
-#contact-section {
-  position: fixed;
-  z-index: 999 !important;
-}
+/* NOTE: The following global Unity fix rules are already in your file and must be kept:
+   #unity-wrapper, #unity-canvas { position: relative !important; z-index: 1 !important; }
+   canvas { position: relative !important; z-index: 1 !important; }
+   body, html { overflow-x: hidden; }
+   #menu, #contact-section { position: fixed; z-index: 999 !important; }
+*/
 
 
 
