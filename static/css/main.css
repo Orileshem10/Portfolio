@@ -194,10 +194,38 @@ body {
   gap: 1rem; /* adds space between cards */
 }
 
+#about-me h3 {
+  font-size: 36px;
+  margin-bottom: 15px;
+  color: white;
+}
+
 #about-me p {
   font-size: 20px;
   line-height: 1.6;
+  color: white; /* optional - adjust if needed */
 }
+
+/* Typing effect */
+#typed-text {
+  white-space: pre-wrap;
+  display: inline;
+}
+
+/* Blinking cursor */
+#cursor {
+  display: inline-block;
+  color: white;
+  font-weight: bold;
+  animation: blink 0.7s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    opacity: 0;
+  }
+}
+
 
 /* ==========================================================
    BOTTOM CARDS LAYOUT
