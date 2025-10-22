@@ -1,4 +1,4 @@
-const text = `I’m a self-taught developer with a strong passion for creating interactive digital experiences.
+const text = `Located in the NY/NJ area I am a self-taught developer with a strong passion for creating interactive digital experiences.
 
 Beginning with game design at a young age, I later expanded into web development and robotics — always driven by curiosity and a desire to learn.
 

@@ -39,7 +39,8 @@ new Chart(ctx, {
       }
     },
     plugins: {
-      legend: { display: false }
+      legend: { display: false },
+      tooltip: { enabled: false }
     }
   }
 });
